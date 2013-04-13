@@ -7,6 +7,7 @@ gem 'pg'
 gem 'puma'
 
 #ui
+gem 'rb-fsevent'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
