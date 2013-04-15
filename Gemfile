@@ -10,6 +10,7 @@ gem 'puma'
 gem 'rb-fsevent'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 # Gems used only for assets and not required
