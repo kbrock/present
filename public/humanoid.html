@@ -1,0 +1,51 @@
+<html>
+<head>
+  <script data-turbolocks-track="false" src="/assets/svg.js"></script>
+  <script data-turbolocks-track="false" src="/assets/svg.draggable.js"></script>
+  <script data-turbolocks-track="false" src="/assets/drawing.js"></script>
+</head>
+<body>
+<p>looking at an 8 point human: <a href="http://www.realcolorwheel.com/human.htm">realcolorwheel.com/human.htm</a></p>
+<p>but in the end, want to produce an editable stick figure: <a href="http://antimatter15.com/ajaxanimator/stick2/stick2.html">stick2</a> (<a href="https://github.com/antimatter15/stick2">github</a>)</p>
+<style>
+ellipse {
+  fill: #fff;
+  stroke-width: 1;
+  stroke: #000;
+}
+</style>
+<!--
+<svg id="avatar1" version="1.1" height="580" width="190">
+<rect height="580" width="190" style="fill: #fff ; stroke-width: 1; stroke: #ccc" />
+<g id="avatar1" transform="translate(40,10)">
+</svg>
+-->
+<!-- TODO: I want to create the svg, and a g, and jsvg from within there -->
+<div id="jsvg" style="height:580px; background: #ddd; display:relative">
+</div>
+
+<script>
+var jsvg = SVG('jsvg')
+
+var hwidth  = function(x) { return (x||1) * 40; }
+var hheight = function(y) { return (y||1) * 60; }
+var head = function(svg, x, y, vert) {
+  if (vert != false)
+    vert = true;
+  return svg.ellipse(vert ? hwidth() : hheight(), vert ? hheight() : hwidth())
+    .move(10 + hheight() + x,10 + y);
+};
+// function dhead()
+// jsvg.ellipse(60,40).move(0,heads(1.5))
+// jsvg.ellipse(60,40).move(heads(1),heads(1.5))
+head(jsvg, 0, 0);
+head(jsvg, -hwidth(), hheight(), false)
+head(jsvg, hheight()-hwidth(), hheight(), false)
+head(jsvg, 0, hheight(1.25));
+head(jsvg, 0, hheight(2.25));
+head(jsvg, -hwidth()/2, hheight(3.25));
+head(jsvg, +hwidth()/2, hheight(3.25));
+// for(var i=0; i<8; i++) {
+//    head(jsvg, 0,i); //ellipse(40, 60).move(40, 30 + heads(i) + ((i>0 && i < 4)? 60/4 : 0));
+// }
+</script>

@@ -1,0 +1,48 @@
+<html>
+<head>
+  <script data-turbolocks-track="false" src="/assets/svg.js"></script>
+  <script data-turbolocks-track="false" src="/assets/svg.draggable.js"></script>
+  <script data-turbolocks-track="false" src="/assets/drawing.js"></script>
+  <script data-turbolocks-track="false" src="/assets/guy.js"></script>
+</head>
+<body>
+<p> drawing a thing thing per <a href="http://www.giantitp.com/forums/showthread.php?p=4835870#post4835870">tutorial</a><p>
+<p>nice thing thing character <a href="http://diseasedproductions.net/thingthing2.html">creator</a></p>
+<p> <a href="http://blog.benjaminranck.com/2011/07/28/arc-paths-in-svg">help</a> with the arc<p>
+<style>
+ellipse, path {
+  fill: none;
+  stroke-width: 4;
+  stroke: #878787;
+}
+
+.foot, .hand, .head {
+  stroke-width: 4;
+  fill: #575757;
+}
+.eye {
+  stroke-width: 0;
+  fill: #fff;
+}
+#jsvg {
+  background: #575757; 
+}
+</style>
+<!--
+<svg id="avatar1" version="1.1" height="580" width="100%">
+<rect height="580" width="190" style="fill: #fff ; stroke-width: 1; stroke: #ccc" />
+<g id="avatar1" transform="translate(40,10)">
+<path d="M160,160 h-150 a150,150 0 1,0 150,-150 z"
+    fill="red" stroke="blue" stroke-width="5" />
+</svg>
+-->
+<!-- TODO: I want to create the svg, and a g, and jsvg from within there -->
+<div id="jsvg" style="height:580px; display:relative">
+</div>
+
+<script>
+var jsvg = SVG('jsvg')
+var g = new Guy(jsvg);
+g.animate();
+
+</script>

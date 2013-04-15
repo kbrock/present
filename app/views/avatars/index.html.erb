@@ -1,0 +1,70 @@
+<style>
+ellipse {
+  fill: #fff;
+  stroke-width: 1;
+  stroke: #000;
+}
+</style>
+<!--
+<svg id="avatar1" version="1.1" height="580" width="190">
+<rect height="580" width="190" style="fill: #fff ; stroke-width: 1; stroke: #ccc" />
+<g id="avatar1" transform="translate(40,10)">
+</svg>
+-->
+<!-- TODO: I want to create the svg, and a g, and jsvg from within there -->
+<div id="jsvg" style="height:580px; background: #ddd; display:relative">
+</div>
+
+<h1><%= link_to 'Listing avatars', avatars_path %></h1>
+<script>
+var jsvg = SVG('jsvg')
+
+var hwidth  = function(x) { return (x||1) * 40; }
+var hheight = function(y) { return (y||1) * 60; }
+var head = function(svg, x, y, vert) {
+  if (vert != false)
+    vert = true;
+  return svg.ellipse(vert ? hwidth() : hheight(), vert ? hheight() : hwidth())
+    .move(10 + hheight() + x,10 + y);
+};
+head(jsvg, 0, 0);
+head(jsvg, -hwidth(), hheight(), false)
+head(jsvg, hheight()-hwidth(), hheight(), false)
+head(jsvg, 0, hheight(1.25));
+head(jsvg, 0, hheight(2.25));
+head(jsvg, -hwidth()/2, hheight(3.25));
+head(jsvg, +hwidth()/2, hheight(3.25));
+// for(var i=0; i<8; i++) {
+//    head(jsvg, 0,i); //ellipse(40, 60).move(40, 30 + heads(i) + ((i>0 && i < 4)? 60/4 : 0));
+// }
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Bag</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avatars.each do |avatar| %>
+    <tr>
+      <td><%= avatar.name %></td>
+      <td><%= avatar.location %></td>
+      <td><%= avatar.bag %></td>
+      <td><%= link_to 'Show', avatar %></td>
+      <td><%= link_to 'Edit', edit_avatar_path(avatar) %></td>
+      <td><%= link_to 'Destroy', avatar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Avatar', new_avatar_path %>
