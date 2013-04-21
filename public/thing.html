@@ -1,12 +1,10 @@
 <html>
 <head>
+  <script data-turbolocks-track="false" src="/assets/application.js"></script>
   <script data-turbolocks-track="false" src="/assets/drawing.js"></script>
   <script data-turbolocks-track="false" src="/assets/guy.js"></script>
 </head>
 <body>
-<p> drawing a thing thing per <a href="http://www.giantitp.com/forums/showthread.php?p=4835870#post4835870">tutorial</a><p>
-<p>nice thing thing character <a href="http://diseasedproductions.net/thingthing2.html">creator</a></p>
-<p> <a href="http://blog.benjaminranck.com/2011/07/28/arc-paths-in-svg">help</a> with the arc<p>
 <style>
 ellipse, path {
   fill: none;
@@ -35,4 +33,24 @@ ellipse, path {
 var jsvg = SVG('jsvg')
 var g = new Guy(jsvg).animate();
 
+
+$(function() {
+  console.debug("binding keydown")
+  $(document).keydown(function(e){
+      // if (e.which == $.ui.keyCode.DOWN)
+      if (e.which == 37) {  //left
+        g.delta(-30, 0);
+        e.preventDefault();
+      } else if (e.which == 38) {  //up
+        g.delta(0, -30);
+        e.preventDefault();
+      } else if (e.which == 39) { //right
+        g.delta(30, 0);
+        e.preventDefault();
+      } else if (e.which == 40) {  //down
+        g.delta(0, 30);
+        e.preventDefault();
+      }
+  });
+})
 </script>

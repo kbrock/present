@@ -55,6 +55,7 @@ sandbox
   http://stackoverflow.com/questions/5044608/javascript-sandbox
   https://github.com/eligrey/jsandbox
   https://developers.google.com/caja/
+
 client side scripting
   https://gist.github.com/dahlia/562017
   http://blog.fogus.me/2012/01/25/lisp-in-40-lines-of-ruby/
@@ -71,7 +72,9 @@ Avatar - thing thing
   http://www.giantitp.com/forums/showthread.php?p=4835870#post4835870
   http://diseasedproductions.net/thingthing2.html - the creator
 
+Drawing help
   http://blog.benjaminranck.com/2011/07/28/arc-paths-in-svg
   http://stackoverflow.com/questions/5736398/how-to-calculate-the-svg-path-for-an-arc-of-a-circle
+
 
 http://37signals.com/svn/posts/3091-pssst-your-rails-application-has-a-secret-to-tell-you

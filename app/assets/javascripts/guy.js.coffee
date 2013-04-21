@@ -3,6 +3,8 @@ class window.Guy
     @size = 36
     @build()
     @tweak(0)
+    @targetx = @x
+    @targety = @y
 
   # put the components onto the screen
   build: ->
@@ -36,12 +38,17 @@ class window.Guy
     @head.y(  0 + offset * 5)
     @
 
-  move: (x, y) ->
+  delta: (x, y) ->
+    targetx = @targetx + x
+    targety = @targety + y
+    if (targetx >= 0 && targety >= 0)
+      @move(targetx, targety)
+  move: (@targetx, @targety) ->
     oldx=@x
     oldy=@y
-    @left_foot.animate(1000,"<").during (pos) =>
-      @x=oldx + (x-oldx)*pos
-      @y=oldy + (y-oldy)*pos
+    @left_foot.animate(1000).during (pos) =>
+      @x=oldx + (targetx-oldx)*pos
+      @y=oldy + (targety-oldy)*pos
     @
 
 
